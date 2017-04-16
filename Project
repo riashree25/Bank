@@ -1,0 +1,13 @@
+BANK MANAGEMENT SYSTEM
+
+create database Bank;
+use Bank;
+
+create table Personal(Account_No int(5) AUTO_INCREMENT,Aadhar_No int(4) not null unique,First_Name varchar(15) not null,Last_Name varchar(15),Gender varchar(6),Birth_Date date,Address varchar(30),Mobile_No bigint(10),Email_Id varchar(20),Primary Key(Account_No));
+
+create table Account(Account_No int(5) not null,Account_Type varchar(10),Branch varchar(15),Date_Opened date,Balance int(6),ATM_Card_No int(8) unique not null,Expiry_Date date,Primary Key(Account_No));
+
+create table UserPwd(User_Name varchar(10) unique not null,Password varchar(8) not null unique,Account_No int(5));
+
+insert into Personal values(1234,'Ria','Shree','Female','1997-07-25','122erf',7073839919,'riashree25@gmail.com');
+
