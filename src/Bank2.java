@@ -20,7 +20,7 @@ class Bank2 extends Frame
 		c1.setBounds(75,50,150,20);
 		c2.setBounds(75,100,150,20);
 		b.setBounds(100,150,50,20);
-		b.addActionListener(this);
+
 		add(c1);add(c2);
 		add(b);
 		setLayout(null);
