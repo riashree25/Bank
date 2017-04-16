@@ -1,0 +1,18 @@
+# Compiled Files
+target/
+test-output/
+*.war
+*.class
+
+# Eclipse Project Files
+.settings/
+.classpath
+.project
+
+# IDEA Project files
+.idea/
+*.iml
+
+# Unused Files
+*.log
+*.DS_Store
