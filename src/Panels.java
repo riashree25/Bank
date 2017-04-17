@@ -1,8 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
-public class Panels extends {
-    public static void front()
+public class Panels extends Frame{
+    public void front()
     {
         JPanel j1=new JPanel();
         CheckboxGroup c=new CheckboxGroup();
@@ -12,7 +13,7 @@ public class Panels extends {
         c1.setBounds(75,50,150,20);
         c2.setBounds(75,100,150,20);
         b.setBounds(100,150,50,20);
-        b.addActionListener(this);
+        //b.addActionListener(this);
         j1.add(c1);
         j1.add(c2);
         j1.add(b);
@@ -20,7 +21,7 @@ public class Panels extends {
         j1.setVisible(true);
     }
 
-    public static void open()
+    public void open()
     {
         JPanel j2=new JPanel();
         Label l1=new Label("User Name");
@@ -42,7 +43,7 @@ public class Panels extends {
         j2.setVisible(true);
     }
 
-    public static void create()
+    public void create()
     {
         JPanel j3=new JPanel();
         Label l1 = new Label("Aadhar Number");
@@ -79,7 +80,7 @@ public class Panels extends {
         t7.setBounds(200, 350, 150, 20);
         t8.setBounds(200, 400, 150, 20);
         b.setBounds(200, 450, 150, 20);
-        b.addActionListener(this);
+        //b.addActionListener(this);
         j3.add(l1);
         j3.add(l2);
         j3.add(l3);

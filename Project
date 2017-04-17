@@ -9,7 +9,7 @@ create table Account(Account_No int(5) not null,Account_Type varchar(10),Branch 
 
 create table UserPwd(User_Name varchar(10) unique not null,Password varchar(8) not null unique,Account_No int(5));
 
-insert into Personal values(10000,1234,'Ria','Shree','Female','1997-07-25','122erf',7073839919,'riashree25@gmail.com');
+insert into Personal(Aadhar_No,First_Name,Last_Name,Gender,Birth_Date,Address,Mobile_no,Email_Id) values(1234,'Ria','Shree','Female','1997-07-25','122erf',7073839919,'riashree25@gmail.com');
 
 insert into Account values(10000,'Savings','LDA','2015-12-25',10000,12345678,'2021-01-01');
 

@@ -32,12 +32,12 @@ class Bank2 extends Frame implements ActionListener
 	{
 		c1.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				Bank();
+				//Bank();
 			}
 		});
 		c2.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				Bank1();
+				//Bank1();
 			}
 		});
 	}
