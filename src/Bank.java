@@ -5,8 +5,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 class Bank extends Frame implements ActionListener {
-    Label     l1, l2, l3, l4, l5, l6, l7, l8, l9;
-    TextField t1, t2, t3, t4, t5, t6, t7, t8, t9;
+    Label     l1, l2, l3, l4, l5, l6, l7, l8;
+    TextField t1, t2, t3, t4, t5, t6, t7, t8;
     Frame     f;
     Button    b;
 
@@ -76,7 +76,7 @@ class Bank extends Frame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         Mysql.insert(Integer.parseInt(t1.getText()), t2.getText(), t3.getText(), t4.getText(), t5.getText(),
-                t6.getText(), Double.parseDouble(t7.getText()), t8.getText());
+                t6.getText(), Long.parseLong(t7.getText()), t8.getText());
     }
 
     public static void main(String args[]) {
