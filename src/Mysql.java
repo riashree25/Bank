@@ -1,25 +1,40 @@
-/**
- * Created by ria on 16/4/17.
- */
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-class Mysql {
-    public static void main(String args[]) {
-        try {
+class Mysql
+{
+    public static void insert(int a1,String s1,String s2,String s3,String s4,String s5,double a2,String s6)
+    {
+        try
+        {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Bank", "root", "friends");
-            // here sonoo is database name, root is username and password
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from Personal");
-            while (rs.next())
-                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
+            int rs = stmt.executeUpdate("insert into Personal values(a1,s1,s2,s3,s4,s5,a2,s6)");
             con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void select()
+    {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Bank", "root", "friends");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from Personal");
+            while (rs.next())
+                System.out.println(rs.getInt("Account_No") + "  " + rs.getString("First_Name") + "  " + rs.getString("Last_Name"));
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void main(String args[])
+    {
+        Mysql ob=new Mysql();
     }
 }
