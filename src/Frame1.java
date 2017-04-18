@@ -5,10 +5,12 @@ import javax.swing.*;
 public class Frame1
 {
     public JPanel contentPane;
-    public MyPanel p1;
-    public MyPanel2 p2;
-    public MyPanel3 p3;
-    public MyPanel4 p4;
+    public Start p1;
+    public Create p2;
+    public Open p3;
+    public Data p4;
+    public Deposit p5;
+    public Withdraw p6;
 
     public void displayGUI()
     {
@@ -17,14 +19,18 @@ public class Frame1
         JPanel contentPane = new JPanel();
         contentPane.setBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25));
         contentPane.setLayout(new CardLayout());
-        p1 = new MyPanel(contentPane);
-        p2 = new MyPanel2(contentPane);
-        p3 = new MyPanel3(contentPane);
-        p4 = new MyPanel4(contentPane);
+        p1 = new Start(contentPane);
+        p2 = new Create(contentPane);
+        p3 = new Open(contentPane);
+        p4 = new Data(contentPane);
+        p5 = new Deposit(contentPane);
+        p6 = new Withdraw(contentPane);
         contentPane.add(p1, "Panel 1");
         contentPane.add(p2, "Panel 2");
         contentPane.add(p3, "Panel 3");
         contentPane.add(p4, "Panel 4");
+        contentPane.add(p5, "Panel 5");
+        contentPane.add(p6, "Panel 6");
         jf.setContentPane(contentPane);
         jf.pack();
         jf.setLocationByPlatform(true);
@@ -43,11 +49,11 @@ public class Frame1
     }
 }
 
-class MyPanel extends JPanel
+class Start extends JPanel
 {
     public JPanel contentPane;
 
-    public MyPanel(JPanel panel)
+    public Start(JPanel panel)
     {
 
         contentPane = panel;
@@ -86,12 +92,12 @@ class MyPanel extends JPanel
     }
 }
 
-class MyPanel2 extends JPanel
+class Create extends JPanel
 {
 
     public JPanel contentPane;
 
-    public MyPanel2(JPanel panel)
+    public Create(JPanel panel)
     {
         contentPane = panel;
         JLabel l1 = new JLabel("Aadhar Number");
@@ -102,6 +108,8 @@ class MyPanel2 extends JPanel
         JLabel l6 = new JLabel("Address");
         JLabel l7 = new JLabel("Mobile Number");
         JLabel l8 = new JLabel("Email ID");
+        JLabel l9 = new JLabel("Account Type");
+        JLabel l10 = new JLabel("Branch");
         JTextField t1 = new JTextField();
         JTextField t2 = new JTextField();
         JTextField t3 = new JTextField();
@@ -110,18 +118,20 @@ class MyPanel2 extends JPanel
         JTextField t6 = new JTextField();
         JTextField t7 = new JTextField();
         JTextField t8 = new JTextField();
+        JTextField t9 = new JTextField();
+        JTextField t10 = new JTextField();
         JButton b = new JButton("Submit");
         setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
 
         b.addActionListener( new ActionListener()
         {
-        public void actionPerformed(ActionEvent e)
-        {
-            //Mysql.insert(Integer.parseInt(t1.getText()), t2.getText(), t3.getText(), t4.getText(), t5.getText(),
-              //      t6.getText(), Long.parseLong(t7.getText()), t8.getText());
-            CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-            cardLayout.next(contentPane);
-        }
+            public void actionPerformed(ActionEvent e)
+            {
+                //Mysql.insert(Integer.parseInt(t1.getText()), t2.getText(), t3.getText(), t4.getText(), t5.getText(),
+                  //      t6.getText(), Long.parseLong(t7.getText()), t8.getText(), t9.getText(), t10.getText());
+                CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+                cardLayout.next(contentPane);
+            }
         });
 
         add(l1);
@@ -140,6 +150,10 @@ class MyPanel2 extends JPanel
         add(t7);
         add(l8);
         add(t8);
+        add(l9);
+        add(t9);
+        add(l10);
+        add(t10);
         add(b);
     }
 
@@ -150,12 +164,12 @@ class MyPanel2 extends JPanel
     }
 }
 
-class MyPanel3 extends JPanel
+class Open extends JPanel
 {
 
     public JPanel contentPane;
 
-    public MyPanel3(JPanel panel)
+    public Open(JPanel panel)
     {
         contentPane = panel;
         JLabel l1=new JLabel("User Name");
@@ -187,12 +201,12 @@ class MyPanel3 extends JPanel
     }
 }
 
-class MyPanel4 extends JPanel
+class Data extends JPanel
 {
 
     public JPanel contentPane;
 
-    public MyPanel4(JPanel panel)
+    public Data(JPanel panel)
     {
         contentPane = panel;
         JLabel l1 = new JLabel("Account Number");
@@ -213,7 +227,8 @@ class MyPanel4 extends JPanel
         JTextField t7 = new JTextField();
         JTextField t8 = new JTextField();
         JTextField t9 = new JTextField();
-        JButton b = new JButton("Show");
+        JButton b1 = new JButton("Deposit");
+        JButton b2 = new JButton("Withdraw");
         add(l1);
         add(t1);
         add(l2);
@@ -232,6 +247,117 @@ class MyPanel4 extends JPanel
         add(t8);
         add(l9);
         add(t9);
+        add(b1);
+        add(b2);
+        setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
+
+        b1.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+                cardLayout.next(contentPane);
+            }
+        });
+        b2.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+                cardLayout.next(contentPane);
+            }
+        });
+    }
+
+    @Override
+    public Dimension getPreferredSize()
+    {
+        return (new Dimension(500, 500));
+    }
+}
+
+class Deposit extends JPanel
+{
+
+    public JPanel contentPane;
+
+    public Deposit(JPanel panel)
+    {
+        contentPane = panel;
+        JLabel l1 = new JLabel("Account Number");
+        JLabel l2 = new JLabel("First Name");
+        JLabel l3 = new JLabel("Balance");
+        JLabel l4 = new JLabel("Amount");
+        JLabel l5 = new JLabel("New Balance");
+        JTextField t1 = new JTextField();
+        JTextField t2 = new JTextField();
+        JTextField t3 = new JTextField();
+        JTextField t4 = new JTextField();
+        JTextField t5 = new JTextField();
+        JTextField t6 = new JTextField();
+        JButton b = new JButton("Deposit");
+        add(l1);
+        add(t1);
+        add(l2);
+        add(t2);
+        add(l3);
+        add(t3);
+        add(l4);
+        add(t4);
+        add(l5);
+        add(t5);
+        add(t6);
+        add(b);
+        setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
+
+        b.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+                cardLayout.next(contentPane);
+            }
+        });
+    }
+
+    @Override
+    public Dimension getPreferredSize()
+    {
+        return (new Dimension(500, 500));
+    }
+}
+
+class Withdraw extends JPanel
+{
+
+    public JPanel contentPane;
+
+    public Withdraw(JPanel panel)
+    {
+        contentPane = panel;
+        JLabel l1 = new JLabel("Account Number");
+        JLabel l2 = new JLabel("First Name");
+        JLabel l3 = new JLabel("Balance");
+        JLabel l4 = new JLabel("Amount");
+        JLabel l5 = new JLabel("New Balance");
+        JTextField t1 = new JTextField();
+        JTextField t2 = new JTextField();
+        JTextField t3 = new JTextField();
+        JTextField t4 = new JTextField();
+        JTextField t5 = new JTextField();
+        JTextField t6 = new JTextField();
+        JButton b = new JButton("Withdraw");
+        add(l1);
+        add(t1);
+        add(l2);
+        add(t2);
+        add(l3);
+        add(t3);
+        add(l4);
+        add(t4);
+        add(l5);
+        add(t5);
+        add(t6);
         add(b);
         setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
 

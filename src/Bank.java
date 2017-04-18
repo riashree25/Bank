@@ -75,8 +75,8 @@ class Bank extends Frame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        Mysql.insert(Integer.parseInt(t1.getText()), t2.getText(), t3.getText(), t4.getText(), t5.getText(),
-                t6.getText(), Long.parseLong(t7.getText()), t8.getText());
+       // Mysql.insert(Integer.parseInt(t1.getText()), t2.getText(), t3.getText(), t4.getText(), t5.getText(),
+         //       t6.getText(), Long.parseLong(t7.getText()), t8.getText());
     }
 
     public static void main(String args[]) {

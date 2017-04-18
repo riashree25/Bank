@@ -3,13 +3,14 @@ BANK MANAGEMENT SYSTEM
 create database Bank;
 use Bank;
 
-create table Personal(Account_No int(5) AUTO_INCREMENT,Aadhar_No int(4) not null unique,First_Name varchar(15) not null,Last_Name varchar(15),Gender varchar(6),Birth_Date date,Address varchar(30),Mobile_No bigint(10),Email_Id varchar(20),Primary Key(Account_No));
+create table Personal(Account_No int(5) AUTO_INCREMENT,Aadhar_No int(4) not null unique,First_Name varchar(15) not null,Last_Name varchar(15),Gender varchar(6),Birth_Date date,Address varchar(30),Mobile_No bigint(10),Email_Id varchar(20),Primary Key(Aadhar_No));
 
-create table Account(Account_No int(5) not null,Account_Type varchar(10),Branch varchar(15),Date_Opened date,Balance int(6),ATM_Card_No int(8) unique not null,Expiry_Date date,Primary Key(Account_No));
+create table Account(Account_No int(5) not null,Account_Type varchar(10),Branch varchar(15),Date_Opened timestamp default current_timestamp on update current_timestamp,Balance int(6),Primary Key(Account_No));
 
 create table UserPwd(User_Name varchar(10) unique not null,Password varchar(8) not null unique,Account_No int(5));
 
 insert into Personal(Aadhar_No,First_Name,Last_Name,Gender,Birth_Date,Address,Mobile_no,Email_Id) values(1234,'Ria','Shree','Female','1997-07-25','122erf',7073839919,'riashree25@gmail.com');
 
-insert into Account values(10000,'Savings','LDA','2015-12-25',10000,12345678,'2021-01-01');
+insert into Account(Account_No,Account_Type,Branch) values(10001,'Savings','Aashiana');
+
 
