@@ -76,7 +76,12 @@ class Start extends JPanel
 			}
 		});*/
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-                cardLayout.next(contentPane);
+
+                if(c1.getState() == true) {
+                    cardLayout.show(contentPane, "Panel 2");
+                } else {
+                    cardLayout.show(contentPane, "Panel 3");
+                }
             }
         });
         add(c1);
