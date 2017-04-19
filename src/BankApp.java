@@ -10,7 +10,7 @@ public class BankApp
     public RegisterPanel p2;
     public LoginPanel p3;
     public UserInfoPanel p4;
-    public DepositWithdrawPanel p5;
+    public TransactionPanel p5;
 
     public void displayGUI()
     {
@@ -23,12 +23,12 @@ public class BankApp
         p2 = new RegisterPanel(contentPane);
         p3 = new LoginPanel(contentPane);
         p4 = new UserInfoPanel(contentPane);
-        p5 = new DepositWithdrawPanel(contentPane);
+        p5 = new TransactionPanel(contentPane);
         contentPane.add(p1, "Opening");
         contentPane.add(p2, "Register");
         contentPane.add(p3, "Login");
         contentPane.add(p4, "UserInfo");
-        contentPane.add(p5, "Deposit/Withdraw");
+        contentPane.add(p5, "Transaction");
         jf.setContentPane(contentPane);
         jf.pack();
         jf.setLocationByPlatform(true);

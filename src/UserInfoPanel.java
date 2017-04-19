@@ -16,22 +16,24 @@ class UserInfoPanel extends JPanel
     public UserInfoPanel(JPanel panel)
     {
         contentPane = panel;
-        ResultSet rs = DbHelper.display();
-        JLabel l1 = new JLabel("Account Number: ");
-        JLabel l2 = new JLabel("Aadhar Number: ");
-        JLabel l3 = new JLabel("Name: ");
-        JLabel l4 = new JLabel("Gender: ");
-        JLabel l5 = new JLabel("Birth Date: ");
-        JLabel l6 = new JLabel("Balance: ");
-        JLabel l7 = new JLabel("Address: ");
-        JLabel l8 = new JLabel("Mobile Number: ");
-        JLabel l9 = new JLabel("Email ID: ");
-        JTextField t7 = new JTextField();
-        JTextField t8 = new JTextField();
-        JTextField t9 = new JTextField();
-        JButton b1 = new JButton("Deposit/Withdraw Money");
-        JButton b2 = new JButton("Save");
-        JButton b3 = new JButton("Exit");
+        ResultSet rs = DbHelper.getAccDetails();
+        try {
+            JLabel l1 = new JLabel("Account Number: " + rs.getString("Account_No"));
+            JLabel l2 = new JLabel("Aadhar Number: ");
+            JLabel l3 = new JLabel("Name: ");
+            JLabel l4 = new JLabel("Gender: ");
+            JLabel l5 = new JLabel("Birth Date: ");
+            JLabel l6 = new JLabel("Balance: ");
+            JLabel l7 = new JLabel("Address: ");
+            JLabel l8 = new JLabel("Mobile Number: ");
+            JLabel l9 = new JLabel("Email ID: ");
+            JTextField t7 = new JTextField(rs.getString("Address"));
+            JTextField t8 = new JTextField();
+            JTextField t9 = new JTextField();
+            JButton b1 = new JButton("Deposit/Withdraw Money");
+            JButton b2 = new JButton("Save");
+            JButton b3 = new JButton("Exit");
+
         add(l1);
         add(l2);
         add(l3);
@@ -54,7 +56,7 @@ class UserInfoPanel extends JPanel
             public void actionPerformed(ActionEvent e)
             {
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-                cardLayout.show(contentPane, "Deposit/Withdraw");
+                cardLayout.show(contentPane, "Transaction");
             }
         });
         b2.addActionListener( new ActionListener()
@@ -72,7 +74,10 @@ class UserInfoPanel extends JPanel
                 cardLayout.show(contentPane, "Opening");
             }
         });
-
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

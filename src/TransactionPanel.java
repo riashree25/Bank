@@ -6,12 +6,12 @@ import java.awt.event.ActionListener;
 /**
  * @author Raj Srivastava
  */
-class DepositWithdrawPanel extends JPanel
+class TransactionPanel extends JPanel
 {
 
     public JPanel contentPane;
 
-    public DepositWithdrawPanel(JPanel panel)
+    public TransactionPanel(JPanel panel)
     {
         contentPane = panel;
         JLabel l1 = new JLabel("Account Number: ");
