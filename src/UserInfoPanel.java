@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * @author Raj Srivastava
@@ -14,17 +16,19 @@ class UserInfoPanel extends JPanel
     public UserInfoPanel(JPanel panel)
     {
         contentPane = panel;
+        ResultSet rs = DbHelper.display();
         JLabel l1 = new JLabel("Account Number: ");
         JLabel l2 = new JLabel("Aadhar Number: ");
         JLabel l3 = new JLabel("Name: ");
         JLabel l4 = new JLabel("Gender: ");
         JLabel l5 = new JLabel("Birth Date: ");
-        JLabel l6 = new JLabel("Address: ");
-        JLabel l7 = new JLabel("Mobile Number: ");
-        JLabel l8 = new JLabel("Email ID: ");
-        JTextField t6 = new JTextField();
+        JLabel l6 = new JLabel("Balance: ");
+        JLabel l7 = new JLabel("Address: ");
+        JLabel l8 = new JLabel("Mobile Number: ");
+        JLabel l9 = new JLabel("Email ID: ");
         JTextField t7 = new JTextField();
         JTextField t8 = new JTextField();
+        JTextField t9 = new JTextField();
         JButton b1 = new JButton("Deposit/Withdraw Money");
         JButton b2 = new JButton("Save");
         JButton b3 = new JButton("Exit");
@@ -34,11 +38,12 @@ class UserInfoPanel extends JPanel
         add(l4);
         add(l5);
         add(l6);
-        add(t6);
         add(l7);
         add(t7);
         add(l8);
         add(t8);
+        add(l9);
+        add(t9);
         add(b1);
         add(b2);
         add(b3);
@@ -56,7 +61,7 @@ class UserInfoPanel extends JPanel
         {
             public void actionPerformed(ActionEvent e)
             {
-                DbHelper.updateData(t6.getText(), Long.parseLong(t7.getText()), t8.getText());
+                DbHelper.updateData(t7.getText(), Long.parseLong(t8.getText()), t9.getText());
             }
         });
         b3.addActionListener( new ActionListener()

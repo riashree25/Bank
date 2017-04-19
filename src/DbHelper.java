@@ -71,4 +71,14 @@ public class DbHelper {
             throw new RuntimeException(e);
         }
     }
+
+    public static ResultSet display() {
+        try {
+            Statement stmt = conn.createStatement();
+            return stmt.executeQuery("select p.Account_No,Aadhar_No,Name,Gender,Birth_Date,Balance,Address,Mobile_No,Email_Id from Personal p,Account a where Account_No=" + BankApp.accNo + " and p.Account_No=a.Account_No;");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
