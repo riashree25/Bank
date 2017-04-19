@@ -48,7 +48,7 @@ class LoginPanel extends JPanel
                     BankApp.accNo = rs.getInt("Account_No");
 
                 } catch (SQLException e1) {
-                    e1.printStackTrace();
+                    throw new RuntimeException(e1);
                 }
 
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
