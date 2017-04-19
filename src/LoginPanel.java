@@ -32,16 +32,15 @@ class LoginPanel extends JPanel
         {
             public void actionPerformed(ActionEvent e)
             {
-                JOptionPane.showMessageDialog(panel, "UserName not fund in db.", "An error occurred", JOptionPane.ERROR_MESSAGE);
 
                 ResultSet rs = DbHelper.selectFromUserPwd(t1.getText());
                 try {
                     if(rs.next() == false) {
-                        JOptionPane.showMessageDialog(panel, "UserName not fund in db.", "An error occurred", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(panel, "UserName not found in db.", "An error occurred", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
 
-                    if(!rs.getString("Password").equals(t2.getText())) {
+                    if(!(rs.getString("Password").equals(t2.getText()))) {
                         JOptionPane.showMessageDialog(panel, "Password is wrong", "An error occurred", JOptionPane.WARNING_MESSAGE);
                         return;
                     }

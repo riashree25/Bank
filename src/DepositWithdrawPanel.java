@@ -6,12 +6,12 @@ import java.awt.event.ActionListener;
 /**
  * @author Raj Srivastava
  */
-class DepositPanel extends JPanel
+class DepositWithdrawPanel extends JPanel
 {
 
     public JPanel contentPane;
 
-    public DepositPanel(JPanel panel)
+    public DepositWithdrawPanel(JPanel panel)
     {
         contentPane = panel;
         JLabel l1 = new JLabel("Account Number: ");
@@ -19,12 +19,17 @@ class DepositPanel extends JPanel
         JLabel l3 = new JLabel("Balance: ");
         JLabel l4 = new JLabel("Amount: ");
         JTextField t4 = new JTextField();
-        JButton b = new JButton("Deposit");
+        CheckboxGroup c=new CheckboxGroup();
+        Checkbox c1=new Checkbox("Deposit",c,false);
+        Checkbox c2=new Checkbox("Withdraw",c,true);
+        JButton b = new JButton("Go");
         add(l1);
         add(l2);
         add(l3);
         add(l4);
         add(t4);
+        add(c1);
+        add(c2);
         add(b);
         setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
 
@@ -33,9 +38,18 @@ class DepositPanel extends JPanel
             public void actionPerformed(ActionEvent e)
             {
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-                cardLayout.show(contentPane, "UserInfo");
+                double x = Double.parseDouble(t4.getText());
+
+                if(c1.getState() == true) {
+                    DbHelper.updateBalance(x);
+                    cardLayout.show(contentPane, "UserInfo");
+                } else {
+                    DbHelper.updateBalance(-x);
+                    cardLayout.show(contentPane, "UserInfo");
+                }
             }
         });
+
     }
 
     @Override

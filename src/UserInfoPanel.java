@@ -25,8 +25,8 @@ class UserInfoPanel extends JPanel
         JTextField t6 = new JTextField();
         JTextField t7 = new JTextField();
         JTextField t8 = new JTextField();
-        JButton b1 = new JButton("Deposit");
-        JButton b2 = new JButton("Withdraw");
+        JButton b1 = new JButton("Deposit/Withdraw Money");
+        JButton b2 = new JButton("Save");
         JButton b3 = new JButton("Exit");
         add(l1);
         add(l2);
@@ -49,15 +49,14 @@ class UserInfoPanel extends JPanel
             public void actionPerformed(ActionEvent e)
             {
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-                cardLayout.show(contentPane, "Deposit");
+                cardLayout.show(contentPane, "Deposit/Withdraw");
             }
         });
         b2.addActionListener( new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
-                CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-                cardLayout.show(contentPane, "Withdraw");
+                DbHelper.updateData(t6.getText(), Long.parseLong(t7.getText()), t8.getText());
             }
         });
         b3.addActionListener( new ActionListener()
@@ -68,6 +67,7 @@ class UserInfoPanel extends JPanel
                 cardLayout.show(contentPane, "Opening");
             }
         });
+
     }
 
     @Override
