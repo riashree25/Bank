@@ -25,8 +25,13 @@ class OpeningPanel extends JPanel
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
 
                 if(c1.getState() == true) {
+                    c1.setState(false);
+                    c2.setState(true);
                     cardLayout.show(contentPane, "Register");
+
                 } else {
+                    c1.setState(false);
+                    c2.setState(true);
                     cardLayout.show(contentPane, "Login");
                 }
             }

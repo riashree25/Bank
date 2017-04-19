@@ -42,9 +42,13 @@ class DepositWithdrawPanel extends JPanel
 
                 if(c1.getState() == true) {
                     DbHelper.updateBalance(x);
+                    c1.setState(false);
+                    c2.setState(true);
                     cardLayout.show(contentPane, "UserInfo");
                 } else {
                     DbHelper.updateBalance(-x);
+                    c1.setState(false);
+                    c2.setState(true);
                     cardLayout.show(contentPane, "UserInfo");
                 }
             }

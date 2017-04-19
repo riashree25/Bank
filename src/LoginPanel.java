@@ -46,6 +46,8 @@ class LoginPanel extends JPanel
                     }
 
                     BankApp.accNo = rs.getInt("Account_No");
+                    t1.setText("");
+                    t2.setText("");
 
                 } catch (SQLException e1) {
                     throw new RuntimeException(e1);
