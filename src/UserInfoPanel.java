@@ -19,17 +19,17 @@ class UserInfoPanel extends JPanel
         ResultSet rs = DbHelper.getAccDetails();
         try {
             JLabel l1 = new JLabel("Account Number: " + rs.getString("Account_No"));
-            JLabel l2 = new JLabel("Aadhar Number: ");
-            JLabel l3 = new JLabel("Name: ");
-            JLabel l4 = new JLabel("Gender: ");
-            JLabel l5 = new JLabel("Birth Date: ");
-            JLabel l6 = new JLabel("Balance: ");
+            JLabel l2 = new JLabel("Aadhar Number: " + rs.getInt("Aadhar_No"));
+            JLabel l3 = new JLabel("Name: " + rs.getString("Name"));
+            JLabel l4 = new JLabel("Gender: " + rs.getString("Gender"));
+            JLabel l5 = new JLabel("Birth Date: " + rs.getString("Birth_Date"));
+            JLabel l6 = new JLabel("Balance: " + rs.getDouble("Balance"));
             JLabel l7 = new JLabel("Address: ");
             JLabel l8 = new JLabel("Mobile Number: ");
             JLabel l9 = new JLabel("Email ID: ");
             JTextField t7 = new JTextField(rs.getString("Address"));
-            JTextField t8 = new JTextField();
-            JTextField t9 = new JTextField();
+            JTextField t8 = new JTextField(rs.getInt("Mobile_No"));
+            JTextField t9 = new JTextField(rs.getString("Email_Id"));
             JButton b1 = new JButton("Deposit/Withdraw Money");
             JButton b2 = new JButton("Save");
             JButton b3 = new JButton("Exit");
