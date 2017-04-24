@@ -24,11 +24,11 @@ public class BankApp
         p3 = new LoginPanel(contentPane);
         p4 = null;
         p5 = null;
-        contentPane.add(p1, "Opening", 1);
-        contentPane.add(p2, "Register", 2);
-        contentPane.add(p3, "Login", 3);
-        contentPane.add(p4, "UserInfo", 4);
-        contentPane.add(p5, "Transaction", 5);
+        contentPane.add(p1, "Opening", 0);
+        contentPane.add(p2, "Register", 1);
+        contentPane.add(p3, "Login", 2);
+        //contentPane.add(p4, "UserInfo", 3);
+        //contentPane.add(p5, "Transaction", 4);
         jf.setContentPane(contentPane);
         jf.pack();
         jf.setLocationByPlatform(true);
