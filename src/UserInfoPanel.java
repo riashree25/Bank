@@ -56,6 +56,10 @@ class UserInfoPanel extends JPanel
             public void actionPerformed(ActionEvent e)
             {
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+                if(contentPane.getComponentCount() > 4) {
+                    contentPane.remove(4);
+                }
+                contentPane.add(new TransactionPanel(contentPane), "Transaction", 4);
                 cardLayout.show(contentPane, "Transaction");
             }
         });
@@ -64,7 +68,9 @@ class UserInfoPanel extends JPanel
             public void actionPerformed(ActionEvent e)
             {
                 DbHelper.updateData(t7.getText(), Long.parseLong(t8.getText()), t9.getText());
-                contentPane.remove(3);
+                if(contentPane.getComponentCount() > 3) {
+                    contentPane.remove(3);
+                }
                 contentPane.add(new UserInfoPanel(contentPane), "UserInfo", 3);
                 contentPane.revalidate();
             }

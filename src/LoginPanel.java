@@ -54,9 +54,13 @@ class LoginPanel extends JPanel
                 }
 
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-                contentPane.remove(3);
+                if(contentPane.getComponentCount() > 3) {
+                    contentPane.remove(3);
+                }
                 contentPane.add(new UserInfoPanel(contentPane), "UserInfo", 3);
-                contentPane.remove(4);
+                if(contentPane.getComponentCount() > 4) {
+                    contentPane.remove(4);
+                }
                 contentPane.add(new TransactionPanel(contentPane), "Transaction", 4);
                 contentPane.revalidate();
                 cardLayout.show(contentPane, "UserInfo");

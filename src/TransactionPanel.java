@@ -44,7 +44,9 @@ class TransactionPanel extends JPanel
                     DbHelper.updateBalance(x);
                     c1.setState(false);
                     c2.setState(true);
-                    contentPane.remove(3);
+                    if(contentPane.getComponentCount() > 3) {
+                        contentPane.remove(3);
+                    }
                     contentPane.add(new UserInfoPanel(contentPane), "UserInfo", 3);
                     contentPane.revalidate();
                     cardLayout.show(contentPane, "UserInfo");
@@ -52,7 +54,9 @@ class TransactionPanel extends JPanel
                     DbHelper.updateBalance(-x);
                     c1.setState(false);
                     c2.setState(true);
-                    contentPane.remove(3);
+                    if(contentPane.getComponentCount() > 3) {
+                        contentPane.remove(3);
+                    }
                     contentPane.add(new UserInfoPanel(contentPane), "UserInfo", 3);
                     contentPane.revalidate();
                     cardLayout.show(contentPane, "UserInfo");
