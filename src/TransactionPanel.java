@@ -44,11 +44,17 @@ class TransactionPanel extends JPanel
                     DbHelper.updateBalance(x);
                     c1.setState(false);
                     c2.setState(true);
+                    contentPane.remove(4);
+                    contentPane.add(new UserInfoPanel(contentPane), "UserInfo", 4);
+                    contentPane.revalidate();
                     cardLayout.show(contentPane, "UserInfo");
                 } else {
                     DbHelper.updateBalance(-x);
                     c1.setState(false);
                     c2.setState(true);
+                    contentPane.remove(4);
+                    contentPane.add(new UserInfoPanel(contentPane), "UserInfo", 4);
+                    contentPane.revalidate();
                     cardLayout.show(contentPane, "UserInfo");
                 }
             }
