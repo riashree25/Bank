@@ -2,6 +2,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DbHelper {
 
@@ -16,8 +18,8 @@ public class DbHelper {
         }
     }
 
-    public static void insert(int a1, String s1, String s2, String s3, String s4, long a2, String s5, String s6,
-            String s7) {
+    public static void insertUserData(int a1, String s1, String s2, String s3, String s4, long a2, String s5, String s6,
+                                      String s7) {
 
         try {
             Statement stmt = conn.createStatement();
@@ -85,13 +87,24 @@ public class DbHelper {
         }
     }
 
-    public static ResultSet insertTxn() {
+    public static List<TxnData> selectTransaction() {
         try {
             Statement stmt = conn.createStatement();
-            return stmt.executeQuery("select * from Txn where Account_No=" + BankApp.accNo + " order by Time limit 10;");
+            ResultSet rs = stmt.executeQuery("select * from Txn where Account_No=" + BankApp.accNo + " order by Time DESC limit 5");
+
+            List<TxnData> data = new ArrayList<>();
+
+            while (rs.next()) {
+
+                TxnData txn = new TxnData(rs.getInt("Txn_Id"), rs.getDouble("Amount"), rs.getBoolean("IsDebit"),
+                        rs.getTimestamp("IsDebit"));
+
+                data.add(txn);
+            }
+
+            return data;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
-
 }

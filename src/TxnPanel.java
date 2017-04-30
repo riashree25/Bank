@@ -1,9 +1,8 @@
 import javax.swing.*;
-import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
+import java.util.List;
 
 class TxnPanel extends JPanel
 {
@@ -13,16 +12,28 @@ class TxnPanel extends JPanel
     public TxnPanel(JPanel panel)
     {
         contentPane = panel;
-        ResultSet rs = DbHelper.insertTxn();
+        List<TxnData> data = DbHelper.selectTransaction();
         try
         {
-            rs.next();
-            String data[][]={ {"101","Amit","670000"},
-                    {"102","Jai","780000"},
-                    {"101","Sachin","700000"}};
-            String column[]={"ID","NAME","SALARY"};
-            JTable jt = new JTable();
+            if(data.size() == 0) {
+                // there are no transactions for this account, show a msg in JLabel
+            } else {
+                // there are transactions for this account, so we will show table
 
+                Object[][] rowData = new Object[data.size()][4];
+
+                for (int i = 0; i < data.size(); i++) {
+                    TxnData txnData = data.get(i);
+
+                    Object[] objects = new Object[] {txnData.getTxnId(), txnData.getAmount(), txnData.getTxnType(),
+                            txnData.getTime()};
+
+                    rowData[i] = objects;
+                }
+                JTable jt = new JTable(rowData, new Object[]{"TxnId", "Amount", "Debit/Credit", "Time"});
+
+                // show this JTable
+            }
 
             JButton b = new JButton("Exit");
             add(b);
