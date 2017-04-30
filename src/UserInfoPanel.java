@@ -71,6 +71,8 @@ class UserInfoPanel extends JPanel
                 }
                 contentPane.add(new UserInfoPanel(contentPane), "UserInfo", 3);
                 contentPane.revalidate();
+                CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+                cardLayout.show(contentPane, "UserInfo");
             }
         });
         b3.addActionListener( new ActionListener()
