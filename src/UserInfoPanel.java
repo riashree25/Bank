@@ -5,9 +5,6 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * @author Raj Srivastava
- */
 class UserInfoPanel extends JPanel
 {
 
@@ -18,6 +15,7 @@ class UserInfoPanel extends JPanel
         contentPane = panel;
         ResultSet rs = DbHelper.getAccDetails();
         try {
+            rs.next();
             JLabel l1 = new JLabel("Account Number: " + rs.getString("Account_No"));
             JLabel l2 = new JLabel("Aadhar Number: " + rs.getInt("Aadhar_No"));
             JLabel l3 = new JLabel("Name: " + rs.getString("Name"));
@@ -28,7 +26,7 @@ class UserInfoPanel extends JPanel
             JLabel l8 = new JLabel("Mobile Number: ");
             JLabel l9 = new JLabel("Email ID: ");
             JTextField t7 = new JTextField(rs.getString("Address"));
-            JTextField t8 = new JTextField(rs.getInt("Mobile_No"));
+            JTextField t8 = new JTextField(rs.getString("Mobile_No"));
             JTextField t9 = new JTextField(rs.getString("Email_Id"));
             JButton b1 = new JButton("Deposit/Withdraw Money");
             JButton b2 = new JButton("Save");

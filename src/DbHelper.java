@@ -83,4 +83,14 @@ public class DbHelper {
         }
     }
 
+    /*public static ResultSet insertTxn() {
+        try {
+            Statement stmt = conn.createStatement();
+            String query = "insert into Txn(Account_No,Amount) values(" + BankApp.accNo + "," + amt + ");";
+            stmt.executeUpdate(query);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }*/
+
 }

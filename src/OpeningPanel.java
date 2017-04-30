@@ -3,9 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * @author Raj Srivastava
- */
 class OpeningPanel extends JPanel
 {
     public JPanel contentPane;

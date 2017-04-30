@@ -5,9 +5,6 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * @author Raj Srivastava
- */
 class LoginPanel extends JPanel
 {
 

@@ -11,5 +11,4 @@ create table UserPwd(User_Name varchar(10) unique not null,Password varchar(8) n
 
 insert into Personal(Aadhar_No,Name,Gender,Birth_Date,Address,Mobile_no,Email_Id) values(1234,'Ria Shree','Female','1997-07-25','122erf',7073839919,'riashree25@gmail.com');
 
-
-
+create table Txn(Txn_Id int(5) AUTO_INCREMENT,Account_No int(5) not null,Amount decimal(8,2) not null,IsDebit boolean default true,Time timestamp default current_timestamp on update current_timestamp,Primary Key(Txn_Id),Foreign Key(Account_No) References Personal(Account_No));
