@@ -12,25 +12,20 @@ class TxnPanel extends JPanel
     public TxnPanel(JPanel panel)
     {
         contentPane = panel;
-        List<TxnData> data = DbHelper.selectTransaction();
+        Object[][] data = DbHelper.selectTransaction();
         try
         {
-            if(data.size() == 0) {
+            if(data.length == 0)
+            {
                 JLabel j = new JLabel("There are no transactions for this account.");
                 add(j);
-            } else {
-                Object[][] rowData = new Object[data.size()][4];
-
-                for (int i = 0; i < data.size(); i++) {
-                    TxnData txnData = data.get(i);
-
-                    Object[] objects = new Object[] {txnData.getTxnId(), txnData.getAmount(), txnData.getTxnType(),
-                            txnData.getTime()};
-
-                    rowData[i] = objects;
-                }
-                JTable jt = new JTable(rowData, new Object[]{"TxnId", "Amount", "Debit/Credit", "Time"});
-                add(jt);
+            }
+            else
+            {
+                JTable jt = new JTable(data, new Object[]{"TxnId", "Amount", "Debit/Credit", "Time"});
+                JScrollPane scrollPane = new JScrollPane();
+                scrollPane.add(jt);
+                add(scrollPane);
             }
 
             JButton b = new JButton("Exit");

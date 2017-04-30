@@ -37,7 +37,7 @@ class LoginPanel extends JPanel
                         return;
                     }
 
-                    if(!(rs.getString("Password").equals(t2.getText()))) {
+                    if(!(rs.getString("Password").equals(new String(t2.getPassword())))) {
                         JOptionPane.showMessageDialog(panel, "Password is wrong", "An error occurred", JOptionPane.WARNING_MESSAGE);
                         return;
                     }

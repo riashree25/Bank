@@ -59,21 +59,21 @@ public class DbHelper {
         }
     }
 
-    public static void updateBalance(double bal, double amt) {
+    public static void updateBalance(double amount) {
         try {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("select Balance from Account where Account_No=" + BankApp.accNo + ";");
-            double x = 0.0;
-            while (rs.next())
-                x = rs.getDouble("Balance");
-            x += bal;
+            rs.next();
+
+            double x = rs.getDouble("Balance");
+            x += amount;
+
             String query1 = "update Account set Balance=" + x + " where Account_no=" + BankApp.accNo + ";";
             stmt.executeUpdate(query1);
-            String query2;
-            if(bal < 0)
-                query2 = "insert into Txn(Account_No,Amount) values(" + BankApp.accNo + "," + amt + ");";
-            else
-                query2 = "insert into Txn(Account_No,Amount,IsDebit) values(" + BankApp.accNo + "," + amt + ",false);";
+
+            String query2 = "insert into Txn(Account_No,Amount,Updated_Bal,IsDebit) values(" + BankApp.accNo + "," + Math.abs(amount) + "," + x;
+            query2 += amount < 0 ? ",true)" : ",false)";
+
             stmt.executeUpdate(query2);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -91,22 +91,20 @@ public class DbHelper {
         }
     }
 
-    public static List<TxnData> selectTransaction() {
+    public static Object[][] selectTransaction() {
         try {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("select * from Txn where Account_No=" + BankApp.accNo + " order by Time DESC limit 5");
 
-            List<TxnData> data = new ArrayList<>();
+            List<Object[]> data = new ArrayList<>();
 
             while (rs.next()) {
 
-                TxnData txn = new TxnData(rs.getInt("Txn_Id"), rs.getDouble("Amount"), rs.getBoolean("IsDebit"),
-                        rs.getTimestamp("IsDebit"));
-
-                data.add(txn);
+                data.add(new Object[] {rs.getInt("Txn_Id"), rs.getDouble("Amount"), rs.getBoolean("IsDebit"),
+                        rs.getTimestamp("IsDebit")});
             }
 
-            return data;
+            return data.toArray(new Object[][] {});
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

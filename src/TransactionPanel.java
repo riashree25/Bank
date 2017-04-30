@@ -16,9 +16,11 @@ class TransactionPanel extends JPanel
         try
         {
             rs.next();
+            double balance = rs.getDouble("Balance");
+
             JLabel l1 = new JLabel("Account Number: " + rs.getString("Account_No"));
             JLabel l2 = new JLabel("Name: " + rs.getString("Name"));
-            JLabel l3 = new JLabel("Balance: " + rs.getDouble("Balance"));
+            JLabel l3 = new JLabel("Balance: " + balance);
             JLabel l4 = new JLabel("Amount: ");
             JTextField t4 = new JTextField();
             CheckboxGroup c=new CheckboxGroup();
@@ -41,10 +43,10 @@ class TransactionPanel extends JPanel
                 {
                     CardLayout cardLayout = (CardLayout) contentPane.getLayout();
                     double x = Double.parseDouble(t4.getText());
-                    double y = Double.parseDouble(t4.getText());
 
-                    if(c1.getState() == true) {
-                        DbHelper.updateBalance(x,y);
+                    if(c1.getState() == true)
+                    {
+                        DbHelper.updateBalance(x);
                         c1.setState(false);
                         c2.setState(true);
                         if(contentPane.getComponentCount() > 3) {
@@ -53,8 +55,15 @@ class TransactionPanel extends JPanel
                         contentPane.add(new UserInfoPanel(contentPane), "UserInfo", 3);
                         contentPane.revalidate();
                         cardLayout.show(contentPane, "UserInfo");
-                    } else {
-                        DbHelper.updateBalance(-x,y);
+                    }
+                    else
+                    {
+                        if(balance < x) {
+                            JOptionPane.showMessageDialog(panel, "Not enough balance to debit this amount.", "Warning", JOptionPane.WARNING_MESSAGE);
+                            return;
+                        }
+
+                        DbHelper.updateBalance(-x);
                         c1.setState(false);
                         c2.setState(true);
                         if(contentPane.getComponentCount() > 3) {
