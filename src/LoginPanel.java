@@ -16,7 +16,7 @@ class LoginPanel extends JPanel
         JLabel l1=new JLabel("User Name");
         JLabel l2=new JLabel("Password");
         JTextField t1=new JTextField();
-        JTextField t2=new JTextField();
+        JPasswordField t2=new JPasswordField();
         JButton b=new JButton("Go");
         add(l1);
         add(t1);

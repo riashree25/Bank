@@ -46,9 +46,9 @@ class UserInfoPanel extends JPanel
         add(l9);
         add(t9);
         add(b1);
+        add(b4);
         add(b2);
         add(b3);
-        add(b4);
         setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
 
         b1.addActionListener( new ActionListener()

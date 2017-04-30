@@ -28,7 +28,7 @@ class RegisterPanel extends JPanel
         JTextField t6 = new JTextField();
         JTextField t7 = new JTextField();
         JTextField t8 = new JTextField();
-        JTextField t9 = new JTextField();
+        JPasswordField t9 = new JPasswordField();
         JButton b = new JButton("Submit");
         setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
 

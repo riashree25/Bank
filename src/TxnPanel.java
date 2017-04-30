@@ -16,10 +16,9 @@ class TxnPanel extends JPanel
         try
         {
             if(data.size() == 0) {
-                // there are no transactions for this account, show a msg in JLabel
+                JLabel j = new JLabel("There are no transactions for this account.");
+                add(j);
             } else {
-                // there are transactions for this account, so we will show table
-
                 Object[][] rowData = new Object[data.size()][4];
 
                 for (int i = 0; i < data.size(); i++) {
@@ -31,8 +30,7 @@ class TxnPanel extends JPanel
                     rowData[i] = objects;
                 }
                 JTable jt = new JTable(rowData, new Object[]{"TxnId", "Amount", "Debit/Credit", "Time"});
-
-                // show this JTable
+                add(jt);
             }
 
             JButton b = new JButton("Exit");

@@ -69,7 +69,11 @@ public class DbHelper {
             x += bal;
             String query1 = "update Account set Balance=" + x + " where Account_no=" + BankApp.accNo + ";";
             stmt.executeUpdate(query1);
-            String query2 = "insert into Txn(Account_No,Amount) values(" + BankApp.accNo + "," + amt + ");";
+            String query2;
+            if(bal < 0)
+                query2 = "insert into Txn(Account_No,Amount) values(" + BankApp.accNo + "," + amt + ");";
+            else
+                query2 = "insert into Txn(Account_No,Amount,IsDebit) values(" + BankApp.accNo + "," + amt + ",false);";
             stmt.executeUpdate(query2);
         } catch (Exception e) {
             throw new RuntimeException(e);
