@@ -57,7 +57,7 @@ public class DbHelper {
         }
     }
 
-    public static void updateBalance(double bal) {
+    public static void updateBalance(double bal, double amt) {
         try {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("select Balance from Account where Account_No=" + BankApp.accNo + ";");
@@ -65,8 +65,10 @@ public class DbHelper {
             while (rs.next())
                 x = rs.getDouble("Balance");
             x += bal;
-            String query = "update Account set Balance=" + x + " where Account_no=" + BankApp.accNo + ";";
-            stmt.executeUpdate(query);
+            String query1 = "update Account set Balance=" + x + " where Account_no=" + BankApp.accNo + ";";
+            stmt.executeUpdate(query1);
+            String query2 = "insert into Txn(Account_No,Amount) values(" + BankApp.accNo + "," + amt + ");";
+            stmt.executeUpdate(query2);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -83,14 +85,13 @@ public class DbHelper {
         }
     }
 
-    /*public static ResultSet insertTxn() {
+    public static ResultSet insertTxn() {
         try {
             Statement stmt = conn.createStatement();
-            String query = "insert into Txn(Account_No,Amount) values(" + BankApp.accNo + "," + amt + ");";
-            stmt.executeUpdate(query);
+            return stmt.executeQuery("select * from Txn where Account_No=" + BankApp.accNo + " order by Time limit 10;");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }*/
+    }
 
 }

@@ -31,6 +31,7 @@ class UserInfoPanel extends JPanel
             JButton b1 = new JButton("Deposit/Withdraw Money");
             JButton b2 = new JButton("Save");
             JButton b3 = new JButton("Exit");
+            JButton b4 = new JButton("Transaction History");
 
         add(l1);
         add(l2);
@@ -47,6 +48,7 @@ class UserInfoPanel extends JPanel
         add(b1);
         add(b2);
         add(b3);
+        add(b4);
         setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
 
         b1.addActionListener( new ActionListener()
@@ -81,6 +83,18 @@ class UserInfoPanel extends JPanel
             {
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
                 cardLayout.show(contentPane, "Opening");
+            }
+        });
+        b4.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+                if(contentPane.getComponentCount() > 5) {
+                    contentPane.remove(5);
+                }
+                contentPane.add(new TxnPanel(contentPane), "Txn", 5);
+                cardLayout.show(contentPane, "Txn");
             }
         });
         }

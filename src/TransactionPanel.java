@@ -41,9 +41,10 @@ class TransactionPanel extends JPanel
                 {
                     CardLayout cardLayout = (CardLayout) contentPane.getLayout();
                     double x = Double.parseDouble(t4.getText());
+                    double y = Double.parseDouble(t4.getText());
 
                     if(c1.getState() == true) {
-                        DbHelper.updateBalance(x);
+                        DbHelper.updateBalance(x,y);
                         c1.setState(false);
                         c2.setState(true);
                         if(contentPane.getComponentCount() > 3) {
@@ -53,7 +54,7 @@ class TransactionPanel extends JPanel
                         contentPane.revalidate();
                         cardLayout.show(contentPane, "UserInfo");
                     } else {
-                        DbHelper.updateBalance(-x);
+                        DbHelper.updateBalance(-x,y);
                         c1.setState(false);
                         c2.setState(true);
                         if(contentPane.getComponentCount() > 3) {

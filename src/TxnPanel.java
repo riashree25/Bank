@@ -1,4 +1,5 @@
-/*import javax.swing.*;
+import javax.swing.*;
+import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,17 +17,14 @@ class TxnPanel extends JPanel
         try
         {
             rs.next();
-            JLabel l1 = new JLabel("Account Number: " + rs.getString("Account_No"));
-            JLabel l2 = new JLabel("Name: " + rs.getString("Name"));
-            JLabel l3 = new JLabel("Balance: " + rs.getDouble("Balance"));
-            JLabel l4 = new JLabel("Amount: ");
-            JTextField t4 = new JTextField();
+            String data[][]={ {"101","Amit","670000"},
+                    {"102","Jai","780000"},
+                    {"101","Sachin","700000"}};
+            String column[]={"ID","NAME","SALARY"};
+            JTable jt = new JTable();
+
+
             JButton b = new JButton("Exit");
-            add(l1);
-            add(l2);
-            add(l3);
-            add(l4);
-            add(t4);
             add(b);
             setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
             b.addActionListener( new ActionListener()
@@ -48,4 +46,4 @@ class TxnPanel extends JPanel
     {
         return (new Dimension(600, 600));
     }
-}*/
+}
