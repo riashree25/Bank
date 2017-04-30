@@ -37,7 +37,7 @@ class RegisterPanel extends JPanel
             public void actionPerformed(ActionEvent e)
             {
                 DbHelper.insertUserData(Integer.parseInt(t1.getText()), t2.getText(), t3.getText(), t4.getText(), t5.getText(),
-                        Long.parseLong(t6.getText()), t7.getText(), t8.getText(), t9.getText());
+                        Long.parseLong(t6.getText()), t7.getText(), t8.getText(), new String(t9.getPassword()));
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
                 cardLayout.show(contentPane, "Login");
             }
