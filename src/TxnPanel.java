@@ -24,7 +24,7 @@ class TxnPanel extends JPanel
             {
                 JTable jt = new JTable(data, new Object[]{"TxnId", "Amount", "Debit/Credit", "Time"});
                 JScrollPane scrollPane = new JScrollPane();
-                scrollPane.add(jt);
+                scrollPane.getViewport().add(jt);
                 add(scrollPane);
             }
 

@@ -2,12 +2,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DbHelper {
 
     private static Connection conn;
+    private static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     static {
         try {
@@ -101,7 +103,7 @@ public class DbHelper {
             while (rs.next()) {
 
                 data.add(new Object[] {rs.getInt("Txn_Id"), rs.getDouble("Amount"), rs.getBoolean("IsDebit"),
-                        rs.getTimestamp("IsDebit")});
+                        format.format(rs.getTimestamp("Time"))});
             }
 
             return data.toArray(new Object[][] {});
