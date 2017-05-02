@@ -51,11 +51,19 @@ class TransactionPanel extends JPanel
                 public void actionPerformed(ActionEvent e)
                 {
                     CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-                    double x = Double.parseDouble(t4.getText());
-                    if(x==0.0) {
-                        JOptionPane.showMessageDialog(panel, "Amount is invalid.", "An error occurred", JOptionPane.ERROR_MESSAGE);
-                        return;
+                    //String s = t4.getText();
+                    try {
+                        if ((t4.getText()) == null) {
+                            JOptionPane.showMessageDialog(panel, "Amount is invalid.", "An error occurred", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
                     }
+                    catch(NumberFormatException e1)
+                        {
+                            JOptionPane.showMessageDialog(panel, "Amount is invalid.", "An error occurred", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
+                    double x = Double.parseDouble(t4.getText());
 
                     if(c1.getState() == true)
                     {
