@@ -51,16 +51,16 @@ class TransactionPanel extends JPanel
                 public void actionPerformed(ActionEvent e)
                 {
                     CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-                    String s = t4.getText();
+                    String amt = t4.getText();
 
-                    if (s == null || s.equals("")) {
+                    if (amt == null || amt.equals("")) {
                         JOptionPane.showMessageDialog(panel, "Amount is not provided.", "An error occurred", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
 
-                    double x = Double.parseDouble(t4.getText());
-                    if(Double.compare(x, 0) == 0) {
-                        JOptionPane.showMessageDialog(panel, "Amount is zero.", "An error occurred", JOptionPane.ERROR_MESSAGE);
+                    double x = Double.parseDouble(amt);
+                    if(Double.compare(x, 0) <= 0) {
+                        JOptionPane.showMessageDialog(panel, "Amount should be greater than 0.", "An error occurred", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
 
