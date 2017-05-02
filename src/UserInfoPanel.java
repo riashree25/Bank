@@ -32,24 +32,40 @@ class UserInfoPanel extends JPanel
             JButton b2 = new JButton("Save");
             JButton b3 = new JButton("Exit");
             JButton b4 = new JButton("Transaction History");
+            l1.setBounds(50,20,300,40);
+            l2.setBounds(50,60,300,40);
+            l3.setBounds(50,100,300,40);
+            l4.setBounds(50,140,300,40);
+            l5.setBounds(50,180,300,40);
+            l6.setBounds(50,220,300,40);
+            l7.setBounds(50,260,300,40);
+            l8.setBounds(50,300,300,40);
+            l9.setBounds(50,340,300,40);
+            t7.setBounds(200,260,250,40);
+            t8.setBounds(200,310,250,40);
+            t9.setBounds(200,360,250,40);
+            b1.setBounds(50,420,200,40);
+            b2.setBounds(300,420,100,40);
+            b3.setBounds(300,480,100,40);
+            b4.setBounds(50,480,200,40);
+            setLayout(null);
 
-        add(l1);
-        add(l2);
-        add(l3);
-        add(l4);
-        add(l5);
-        add(l6);
-        add(l7);
-        add(t7);
-        add(l8);
-        add(t8);
-        add(l9);
-        add(t9);
-        add(b1);
-        add(b4);
-        add(b2);
-        add(b3);
-        setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
+            add(l1);
+            add(l2);
+            add(l3);
+            add(l4);
+            add(l5);
+            add(l6);
+            add(l7);
+            add(t7);
+            add(l8);
+            add(t8);
+            add(l9);
+            add(t9);
+            add(b1);
+            add(b4);
+            add(b2);
+            add(b3);
 
         b1.addActionListener( new ActionListener()
         {

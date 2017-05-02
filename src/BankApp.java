@@ -14,7 +14,7 @@ public class BankApp
         JFrame jf = new JFrame("Bank");
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel contentPane = new JPanel();
-        contentPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        contentPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         contentPane.setLayout(new CardLayout());
         p1 = new OpeningPanel(contentPane);
         p2 = new RegisterPanel(contentPane);

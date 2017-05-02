@@ -15,6 +15,9 @@ class OpeningPanel extends JPanel
         Checkbox c1=new Checkbox("Sign Up",c,false);
         Checkbox c2=new Checkbox("Sign In",c,true);
         JButton b=new JButton("Go");
+        c1.setBounds(225,150,100,50);
+        c2.setBounds(225,250,100,50);
+        b.setBounds(225,350,100,40);
         b.addActionListener( new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
@@ -36,7 +39,7 @@ class OpeningPanel extends JPanel
         add(c1);
         add(c2);
         add(b);
-        setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
+        setLayout(null);
     }
 
     @Override

@@ -27,6 +27,16 @@ class TransactionPanel extends JPanel
             Checkbox c1=new Checkbox("Deposit",c,false);
             Checkbox c2=new Checkbox("Withdraw",c,true);
             JButton b = new JButton("Go");
+            l1.setBounds(100,20,300,40);
+            l2.setBounds(100,70,300,40);
+            l3.setBounds(100,120,300,40);
+            l4.setBounds(100,170,100,40);
+            t4.setBounds(200,170,150,40);
+            c1.setBounds(150,220,150,40);
+            c2.setBounds(150,270,150,40);
+            b.setBounds(150,320,150,40);
+            setLayout(null);
+
             add(l1);
             add(l2);
             add(l3);
@@ -35,7 +45,6 @@ class TransactionPanel extends JPanel
             add(c1);
             add(c2);
             add(b);
-            setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
 
             b.addActionListener( new ActionListener()
             {
@@ -43,6 +52,10 @@ class TransactionPanel extends JPanel
                 {
                     CardLayout cardLayout = (CardLayout) contentPane.getLayout();
                     double x = Double.parseDouble(t4.getText());
+                    if(x==0.0) {
+                        JOptionPane.showMessageDialog(panel, "Amount is invalid.", "An error occurred", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
 
                     if(c1.getState() == true)
                     {

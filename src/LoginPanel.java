@@ -18,12 +18,17 @@ class LoginPanel extends JPanel
         JTextField t1=new JTextField();
         JPasswordField t2=new JPasswordField();
         JButton b=new JButton("Go");
+        l1.setBounds(125,150,100,40);
+        l2.setBounds(125,250,100,40);
+        t1.setBounds(250,150,200,40);
+        t2.setBounds(250,250,200,40);
+        b.setBounds(250,350,100,40);
         add(l1);
         add(t1);
         add(l2);
         add(t2);
         add(b);
-        setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
+        setLayout(null);
 
         b.addActionListener( new ActionListener()
         {

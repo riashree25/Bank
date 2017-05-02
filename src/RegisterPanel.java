@@ -30,7 +30,26 @@ class RegisterPanel extends JPanel
         JTextField t8 = new JTextField();
         JPasswordField t9 = new JPasswordField();
         JButton b = new JButton("Submit");
-        setLayout (new BoxLayout (this, BoxLayout.PAGE_AXIS));
+        l1.setBounds(50,20,300,40);
+        l2.setBounds(50,70,300,40);
+        l3.setBounds(50,120,300,40);
+        l4.setBounds(50,170,300,40);
+        l5.setBounds(50,220,300,40);
+        l6.setBounds(50,270,300,40);
+        l7.setBounds(50,320,300,40);
+        l8.setBounds(50,370,300,40);
+        l9.setBounds(50,420,300,40);
+        t1.setBounds(200,20,250,40);
+        t2.setBounds(200,70,250,40);
+        t3.setBounds(200,120,250,40);
+        t4.setBounds(200,170,250,40);
+        t5.setBounds(200,220,250,40);
+        t6.setBounds(200,270,250,40);
+        t7.setBounds(200,320,250,40);
+        t8.setBounds(200,370,250,40);
+        t9.setBounds(200,420,250,40);
+        b.setBounds(200,480,100,40);
+        setLayout(null);
 
         b.addActionListener( new ActionListener()
         {
