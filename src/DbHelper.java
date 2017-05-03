@@ -102,7 +102,7 @@ public class DbHelper {
 
             while (rs.next()) {
 
-                data.add(new Object[] {rs.getInt("Txn_Id"), rs.getDouble("Amount"), rs.getBoolean("IsDebit"),
+                data.add(new Object[] {rs.getInt("Txn_Id"), rs.getDouble("Amount"), rs.getBoolean("IsDebit") ? "Debit" : "Credit",
                         format.format(rs.getTimestamp("Time"))});
             }
 
