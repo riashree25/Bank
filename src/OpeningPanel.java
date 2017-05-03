@@ -11,13 +11,15 @@ class OpeningPanel extends JPanel
     {
 
         contentPane = panel;
+        JLabel l = new JLabel("CITY BANK JAIPUR");
         CheckboxGroup c=new CheckboxGroup();
         Checkbox c1=new Checkbox("Sign Up",c,false);
         Checkbox c2=new Checkbox("Sign In",c,true);
         JButton b=new JButton("Go");
-        c1.setBounds(225,150,100,50);
-        c2.setBounds(225,250,100,50);
-        b.setBounds(225,350,100,40);
+        l.setBounds(250,150,300,100);
+        c1.setBounds(250,250,100,50);
+        c2.setBounds(250,300,100,50);
+        b.setBounds(250,350,100,40);
         b.addActionListener( new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
@@ -36,6 +38,7 @@ class OpeningPanel extends JPanel
                 }
             }
         });
+        add(l);
         add(c1);
         add(c2);
         add(b);

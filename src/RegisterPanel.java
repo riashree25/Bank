@@ -11,7 +11,7 @@ class RegisterPanel extends JPanel
     public RegisterPanel(JPanel panel)
     {
         contentPane = panel;
-        JLabel l1 = new JLabel("Aadhar Number");
+        JLabel l1 = new JLabel("Aadhar Number (4-digit)");
         JLabel l2 = new JLabel("Name");
         JLabel l3 = new JLabel("Gender");
         JLabel l4 = new JLabel("Birth Date");
@@ -19,7 +19,7 @@ class RegisterPanel extends JPanel
         JLabel l6 = new JLabel("Mobile Number");
         JLabel l7 = new JLabel("Email ID");
         JLabel l8 = new JLabel("User Name");
-        JLabel l9 = new JLabel("Password");
+        JLabel l9 = new JLabel("Password (upto 8 characters)");
         JTextField t1 = new JTextField();
         JTextField t2 = new JTextField();
         JTextField t3 = new JTextField();
@@ -39,16 +39,16 @@ class RegisterPanel extends JPanel
         l7.setBounds(50,320,300,40);
         l8.setBounds(50,370,300,40);
         l9.setBounds(50,420,300,40);
-        t1.setBounds(200,20,250,40);
-        t2.setBounds(200,70,250,40);
-        t3.setBounds(200,120,250,40);
-        t4.setBounds(200,170,250,40);
-        t5.setBounds(200,220,250,40);
-        t6.setBounds(200,270,250,40);
-        t7.setBounds(200,320,250,40);
-        t8.setBounds(200,370,250,40);
-        t9.setBounds(200,420,250,40);
-        b.setBounds(200,480,100,40);
+        t1.setBounds(300,20,250,40);
+        t2.setBounds(300,70,250,40);
+        t3.setBounds(300,120,250,40);
+        t4.setBounds(300,170,250,40);
+        t5.setBounds(300,220,250,40);
+        t6.setBounds(300,270,250,40);
+        t7.setBounds(300,320,250,40);
+        t8.setBounds(300,370,250,40);
+        t9.setBounds(300,420,250,40);
+        b.setBounds(250,480,100,40);
         setLayout(null);
 
         b.addActionListener( new ActionListener()
